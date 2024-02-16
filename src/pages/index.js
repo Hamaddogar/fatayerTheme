@@ -35,7 +35,8 @@ const Home = () => {
       dispath(fetchData());
       dispath(fetchCategoriesList());
     }
-  }, [dispath]);
+  }, []);
+
   const [bannerDetails, setBannerDetails] = useState({
     mainCard: {
       status: true,

@@ -4,36 +4,10 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { useRouter } from "next/navigation";
+import { sections } from "@/utils/response";
 const OfferNavbar = () => {
   const router = useRouter();
-  const [adAppbar, setAdAppbar] = useState({
-    width: "100%",
-    height: "60px",
-    backgroundColor: "white",
-    AdText: "",
-    href: "",
-    textPosition: "",
-    Slider: [
-      {
-        text: "Hamad",
-        imageURL:
-          "https://1000logos.net/wp-content/uploads/2020/09/James-Bond-Logo-2012.png",
-        href: "/search",
-      },
-      {
-        text: "Hamad",
-        imageURL:
-          "https://1000logos.net/wp-content/uploads/2020/09/James-Bond-Logo-2012.png",
-        href: "/checkout",
-      },
-      {
-        text: "Hamad",
-        imageURL:
-          "https://1000logos.net/wp-content/uploads/2020/09/James-Bond-Logo-2012.png",
-        href: "",
-      },
-    ],
-  });
+  const [adAppbar, setAdAppbar] = useState(sections[0].appBar.adAppBar);
   const { Slider, ...restOfStyles } = adAppbar;
   return (
     <Swiper

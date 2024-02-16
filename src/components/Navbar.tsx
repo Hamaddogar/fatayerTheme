@@ -14,12 +14,13 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { Image, Input, Span } from ".";
 import { useMediaQuery } from "@mui/material";
+import { sections } from "@/utils/response";
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const matches = useMediaQuery("(max-width:600px)");
   const router = useRouter();
-  const configrationState = useSelector((state:any) => state?.configration);
+  const configrationState = useSelector((state: any) => state?.configration);
   const [generalIcons, setGeneralIcons] = useState({
     color: "transparent",
     border: "",
@@ -28,33 +29,16 @@ const Navbar = () => {
     borderRadius: "50%",
     backgroundColor: "transparent",
   });
-  const [appBarSearch, setAppBarSearch] = useState({
-    status: true,
-    icon: "https://i.imgur.com/K79NGcT.png",
-    position: "left",
-    input: true,
-    textColor: "black",
-    borderColor: "blue",
-    borderWidth: "5",
-    mobileView: {
-      status: "true, false",
-      position: "left, center",
-      width: "",
-      height: "",
-    },
-  });
+  const [appBarSearch, setAppBarSearch] = useState(sections[0].appBar.search);
+  // console.log(appBarSearch);
 
   const [themeLogo, setThemeLogo] = useState<any>(null);
 
   const [logoObj, setLogoObj] = useState<any>(null);
 
-  const [appBarContainer, setAppBarContainer] = useState({
-    show: true,
-    boxShadow: "none, 1,2,3,4",
-    backgroundColor: "white",
-    width: "100%",
-    height: "90px",
-  });
+  const [appBarContainer, setAppBarContainer] = useState(
+    sections[0].appBar.container
+  );
   const [appBarRightDetails, setAppBarRightDetails] = useState([
     {
       id: "",
@@ -109,7 +93,7 @@ const Navbar = () => {
       screen: "drawer",
     },
   ]);
-  const globalState = useSelector((state:any) => state?.cartList);
+  const globalState = useSelector((state: any) => state?.cartList);
 
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
@@ -184,23 +168,7 @@ const Navbar = () => {
   });
 
   // Banner
-  const [appBarLogo, setAppBarLogo] = useState({
-    status: "true",
-    position: "left",
-    text: {
-      value: "Hassaan",
-      color: "black",
-      backgroundColor: "",
-    },
-    logo: {
-      url: "https://overzaki.fra1.cdn.digitaloceanspaces.com/robustidiot5576.overzaki.info/image/design/1707763191248-desktop-wallpaper-cobra-logo-computer-cobra-commander-computer.jpg",
-      borderColor: "",
-      borderWidth: "",
-      width: "40px",
-      height: "40px",
-      borderRadius: "10%",
-    },
-  });
+  const [appBarLogo, setAppBarLogo] = useState(sections[0]?.websiteLogo);
 
   const [centerMenu, setCenterMenu] = useState({
     status: true,
@@ -315,7 +283,7 @@ const Navbar = () => {
         {/* Center */}
         <div className="flex items-center">
           <div className="flex items-center gap-3">
-            {centerMenu?.menuItems?.map((item:any, i) => (
+            {centerMenu?.menuItems?.map((item: any, i) => (
               <span
                 key={i}
                 onMouseEnter={() => setIsHovered(item?.name)}
