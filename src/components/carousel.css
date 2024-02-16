@@ -1,0 +1,15 @@
+.swiper-pagination-bullet {
+  margin-top: 200px !important;
+}
+.swiper-button-next {
+  z-index: 999 !important ;
+}
+.swiper-button-prev::after {
+  z-index: 999 !important ;
+}
+.swiper-button-prev::before {
+  z-index: 999 !important ;
+}
+.swiper-button-prev {
+  z-index: 999 !important ;
+}
