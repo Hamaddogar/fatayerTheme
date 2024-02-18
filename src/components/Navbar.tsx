@@ -24,6 +24,7 @@ const Navbar = () => {
   const [generalIcons, setGeneralIcons] = useState(sections[0].generalIcons);
   const [appBarSearch, setAppBarSearch] = useState(sections[0].appBar.search);
   // console.log(generalIcons);
+  const [appBarLogo, setAppBarLogo] = useState(sections[0]?.websiteLogo);
 
   const [appBarContainer, setAppBarContainer] = useState(
     sections[0].appBar.container
@@ -98,7 +99,7 @@ const Navbar = () => {
       let logoValue = configrationState?.defaultData?.logo;
       logoValue = logoValue !== "empty value" ? logoValue : "";
       // setThemeLogo(logoValue || "");
-      // setLogoObj(configrationState?.defaultData?.appBar?.logoObj);
+      setAppBarLogo(configrationState?.defaultData?.appBar?.logoObj);
 
       // ----------- New AppBar Response Values -----------------
       const sections = configrationState?.defaultData?.home?.sections;
@@ -174,7 +175,6 @@ const Navbar = () => {
   }, [configrationState?.defaultData]);
 
   // Banner
-  const [appBarLogo, setAppBarLogo] = useState(sections[0]?.websiteLogo);
 
   const [centerMenu, setCenterMenu] = useState(sections[0]?.appBar?.menu);
 
@@ -226,7 +226,7 @@ const Navbar = () => {
           )}
           {appBarSearch?.position === "left" && appBarSearch?.status && (
             <Input
-              input={appBarSearch?.input}
+              input={!matches && appBarSearch?.input}
               style={
                 appBarSearch?.input
                   ? {
@@ -314,7 +314,7 @@ const Navbar = () => {
           )}
           {appBarSearch?.position === "center" && (
             <Input
-              input={appBarSearch?.input}
+              input={!matches && appBarSearch?.input}
               style={
                 appBarSearch?.input
                   ? {
@@ -355,7 +355,7 @@ const Navbar = () => {
               className={`${
                 appBarSearch?.mobileView?.status ? "max-sm:flex" : "hidden"
               }`}
-              input={appBarSearch?.input}
+              input={!matches && appBarSearch?.input}
               style={
                 appBarSearch?.input
                   ? {
