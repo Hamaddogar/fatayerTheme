@@ -123,7 +123,7 @@ export const sections = [
     banner: {
       paymentBox: {
         // updated
-        status: true,
+        status: false,
         logo: "websiteLogo", // use website logo here
         heading: "Hassaan",
         paymentMethod: [
@@ -141,12 +141,12 @@ export const sections = [
       },
       bannerBackground: {
         status: true,
-        backgroundType: "image",
+        backgroundType: "slider",
         image: {
           src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
-          text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,",
+          text: "",
           textStatus: true,
-          zIndex: 2,
+
           width: 200,
           height: 100,
           style: {
@@ -157,7 +157,7 @@ export const sections = [
           },
           adjustPicturePosition: "10%",
         },
-        sliderType: "Manual",
+        sliderType: "Fade",
         slider: [
           {
             src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",

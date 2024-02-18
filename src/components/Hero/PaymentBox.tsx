@@ -27,7 +27,7 @@ const PaymentBox = () => {
     paymentBoxDet.status && (
       <>
         <div className="w-full flex items-center justify-center">
-          <div className="absolute z-50 w-full lg:w-[50vw] bottom-10 rounded-lg bg-white">
+          <div className="absolute z-10 w-full lg:w-[50vw] bottom-10 rounded-lg bg-white">
             <div
               className="flex border-b border-gray-300 gap-4  p-5 w-full items-center"
               onClick={() => setOpen(true)}

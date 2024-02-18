@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import PaymentBox from "./Hero/PaymentBox";
+import { sections } from "@/utils/response";
+import { Navigation } from "swiper/modules";
+import "swiper/css/effect-fade";
+import { EffectFade } from "swiper/modules";
 const BannerSlider = ({ data }: any) => {
+  const bannerType = sections[0]?.banner?.bannerBackground?.sliderType;
+  console.log(bannerType);
   return (
-    <Swiper modules={[Autoplay]} autoplay={{ delay: 1700 }} loop>
+    <Swiper
+      modules={
+        bannerType === "Manual"
+          ? [Navigation]
+          : bannerType === "Auto"
+          ? [Autoplay]
+          : [EffectFade, Autoplay]
+      }
+      className="relative"
+      effect={(bannerType === "Fade" && "fade") || ""}
+      navigation={bannerType === "Manual"}
+      autoplay={{ delay: 1700 }}
+      loop
+    >
       {data?.map((item: any, i: any) => (
         <SwiperSlide key={i} className="relative">
           <img className="w-full object-center" src={item?.src} />
@@ -19,6 +40,7 @@ const BannerSlider = ({ data }: any) => {
           )}
         </SwiperSlide>
       ))}
+      <PaymentBox />
     </Swiper>
   );
 };

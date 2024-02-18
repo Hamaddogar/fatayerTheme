@@ -1,4 +1,5 @@
 import React from "react";
+import PaymentBox from "./Hero/PaymentBox";
 
 const ImageTextBanner = ({ data }: { data: any }) => {
   return (
@@ -9,6 +10,7 @@ const ImageTextBanner = ({ data }: { data: any }) => {
           {data?.text}
         </h1>
       )}
+      <PaymentBox />
     </div>
   );
 };

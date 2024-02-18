@@ -13,6 +13,7 @@ import {
 } from "../components";
 import Section from "../../sections/Section";
 import { sections } from "../../constants/constants";
+import { sections as respData } from "../utils/response";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import fetchData from "../../RTK/actions/Products";
@@ -37,66 +38,7 @@ const Home = () => {
     }
   }, []);
 
-  const [bannerDetails, setBannerDetails] = useState({
-    mainCard: {
-      status: true,
-      logo: true,
-      heading: "",
-    },
-
-    bannerBackground: {
-      status: true,
-      backgroundType: "slider",
-      image: {
-        src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
-        text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,",
-        textStatus: true,
-        style: {
-          top: "90px",
-          left: "30px",
-          fontWeight: 300,
-          color: "red",
-        },
-        adjustPicturePosition: "10%",
-      },
-
-      slider: [
-        {
-          src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
-          text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,",
-          textStatus: true,
-          style: {
-            top: "90px",
-            left: "90px",
-            fontWeight: 900,
-            color: "blue",
-          },
-        },
-        {
-          src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
-          text: "007",
-          textStatus: true,
-          style: {
-            top: "10px",
-            left: "10px",
-            fontWeight: 900,
-            color: "red",
-          },
-        },
-        {
-          src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
-          text: "Hassaan 82 007",
-          textStatus: true,
-          style: {
-            top: "10px",
-            left: "10px",
-            fontWeight: 900,
-            color: "red",
-          },
-        },
-      ],
-    },
-  });
+  const [bannerDetails, setBannerDetails] = useState(respData[0]?.banner);
 
   return (
     <div className="">
@@ -104,7 +46,7 @@ const Home = () => {
       {/* <PreLoader /> */}
       <OfferNavbar />
       <Navbar />
-      <Hero />
+      {/* <Hero /> */}
 
       {bannerDetails?.bannerBackground?.backgroundType === "video" ? (
         <VideoBanner />
