@@ -21,20 +21,9 @@ const Navbar = () => {
   const matches = useMediaQuery("(max-width:600px)");
   const router = useRouter();
   const configrationState = useSelector((state: any) => state?.configration);
-  const [generalIcons, setGeneralIcons] = useState({
-    color: "transparent",
-    border: "",
-    width: "40px",
-    height: "40px",
-    borderRadius: "50%",
-    backgroundColor: "transparent",
-  });
+  const [generalIcons, setGeneralIcons] = useState(sections[0].generalIcons);
   const [appBarSearch, setAppBarSearch] = useState(sections[0].appBar.search);
-  // console.log(appBarSearch);
-
-  const [themeLogo, setThemeLogo] = useState<any>(null);
-
-  const [logoObj, setLogoObj] = useState<any>(null);
+  // console.log(generalIcons);
 
   const [appBarContainer, setAppBarContainer] = useState(
     sections[0].appBar.container
@@ -108,89 +97,20 @@ const Navbar = () => {
       setShowSearchBar(searchbarValue);
       let logoValue = configrationState?.defaultData?.logo;
       logoValue = logoValue !== "empty value" ? logoValue : "";
-      setThemeLogo(logoValue || "");
+      // setThemeLogo(logoValue || "");
       // setAppBarSearch({
       //   ...configrationState?.defaultData?.appBar?.search,
       //   status: true,
       // });
       // setAppBarContainer(configrationState?.defaultData?.appBar?.container);
-      setLogoObj(configrationState?.defaultData?.appBar?.logoObj);
+      // setLogoObj(configrationState?.defaultData?.appBar?.logoObj);
     }
   }, [configrationState?.defaultData]);
-  const [iconStyle, setIconStyle] = useState({
-    borderRadius: 11,
-    backgroundColor: "#FFFFFF",
-    backgroundColorDark: "#000000",
-    hasBackground: true,
-    tintColor: "#000000",
-    tintColorDark: "#000000",
-    border: 1,
-    borderColor: "#000000",
-    borderColorDark: "#000000",
-    isShadow: false,
-    startColor: "#00000008",
-    finalColor: "#00000000",
-    width: 35,
-    height: 35,
-  });
-  const [appBarCenter, setAppBarCenter] = useState([
-    {
-      id: "",
-      key: "mobile_home_app_bar_show_logo",
-      image: "https://i.imgur.com/lhzK1Ly.png",
-      show: false,
-      is_tint_color: false,
-      width: 50,
-      height: 50,
-      color: "#000000",
-      dark_color: "#000000",
-      type: "image",
-      screen: "",
-      required: "", //Require Center Logo Or No
-    },
-    {
-      id: "",
-      show: false,
-      key: "mobile_home_app_bar_show_text",
-      text: "Store",
-      type: "text",
-      screen: "",
-      required: "", //Require Center Text Or No
-    },
-  ]);
-  const [textStyle, setTextStyle] = useState({
-    size: 18,
-    isBold: true,
-    color: "#000000",
-    colorDark: "#FFFFFF",
-    numberOfLines: 1,
-    style: [],
-  });
 
   // Banner
   const [appBarLogo, setAppBarLogo] = useState(sections[0]?.websiteLogo);
 
-  const [centerMenu, setCenterMenu] = useState({
-    status: true,
-    menuItems: [
-      {
-        name: "Hamad",
-        link: "",
-      },
-      {
-        name: "Hamad 2",
-        link: "",
-      },
-    ],
-    style: {
-      size: "18px",
-      color: "red",
-      backgroundColor: "transparent",
-      hoverColor: "black",
-      fontWeight: 100,
-      fontStyle: "",
-    },
-  });
+  const [centerMenu, setCenterMenu] = useState(sections[0]?.appBar?.menu);
 
   return (
     <>
@@ -252,7 +172,18 @@ const Navbar = () => {
                       // background: "transparent",
                       display: appBarSearch?.status ? "flex" : "none",
                     }
-                  : generalIcons
+                  : {
+                      ...generalIcons,
+                      backgroundColor: generalIcons?.hasBackground
+                        ? generalIcons?.backgroundColor
+                        : "transparent",
+                      border: `${generalIcons?.border.toString()} ${
+                        generalIcons?.borderColor
+                      }`,
+                      boxShadow: generalIcons?.isShadow
+                        ? "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+                        : "none",
+                    }
               }
               className={`${
                 appBarSearch?.mobileView?.status ? "max-sm:flex" : "hidden"
@@ -381,8 +312,6 @@ const Navbar = () => {
             <Image
               style={{
                 ...generalIcons,
-                width: "34px",
-                height: "34px",
               }}
               src={
                 appBarRightDetails?.find(
@@ -398,8 +327,6 @@ const Navbar = () => {
             <Image
               style={{
                 ...generalIcons,
-                width: "34px",
-                height: "34px",
               }}
               src={
                 appBarRightDetails?.find(

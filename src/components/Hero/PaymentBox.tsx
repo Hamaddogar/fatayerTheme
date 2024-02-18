@@ -4,6 +4,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PickupButton from "./PickupButton";
 import StoreInfoSlide from "../StoreInfoSlide";
 import { useSelector } from "react-redux";
+import { sections } from "@/utils/response";
 
 const PaymentBox = () => {
   const [themeLogo, setthemeLogo] = useState<any>(null);
@@ -19,24 +20,9 @@ const PaymentBox = () => {
   }, [configrationState?.defaultData]);
 
   const [open, setOpen] = React.useState(false);
-  const [paymentBoxDet, setPaymentBoxDet] = useState({
-    // updated
-    status: true,
-    logo: "websiteLogo", // use website logo here
-    heading: "Hassaan",
-    paymentMethod: [
-      "/knet.png",
-      "/visa.png",
-      "/spay.png",
-      "/apple-pay.png",
-      "/google-pay.png",
-      "/cash-on-delivery.png",
-    ],
-    button: {
-      text: "Hassaan",
-      radius: "25px",
-    },
-  });
+  const [paymentBoxDet, setPaymentBoxDet] = useState(
+    sections[0]?.banner?.paymentBox
+  );
   return (
     paymentBoxDet.status && (
       <>
