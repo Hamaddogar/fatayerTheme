@@ -98,12 +98,78 @@ const Navbar = () => {
       let logoValue = configrationState?.defaultData?.logo;
       logoValue = logoValue !== "empty value" ? logoValue : "";
       // setThemeLogo(logoValue || "");
-      // setAppBarSearch({
-      //   ...configrationState?.defaultData?.appBar?.search,
-      //   status: true,
-      // });
-      // setAppBarContainer(configrationState?.defaultData?.appBar?.container);
       // setLogoObj(configrationState?.defaultData?.appBar?.logoObj);
+
+      // ----------- New AppBar Response Values -----------------
+      const sections = configrationState?.defaultData?.home?.sections;
+      // console.log(sections?.appBar);
+
+      // container
+      if (
+        sections?.appBar?.container &&
+        typeof sections?.appBar?.container === "object"
+      ) {
+        setAppBarContainer({
+          ...appBarContainer,
+          ...sections?.appBar?.container,
+        });
+      }
+
+      // search
+      if (
+        sections?.appBar?.search &&
+        typeof sections?.appBar?.search === "object"
+      ) {
+        setAppBarSearch({ ...appBarSearch, ...sections?.appBar?.search });
+      }
+
+      // setGeneralIcons
+      if (
+        sections?.general?.generalIcons &&
+        typeof sections?.general?.generalIcons === "object"
+      ) {
+        setGeneralIcons({
+          ...generalIcons,
+          ...sections?.general?.generalIcons,
+        });
+      }
+
+      // Logo
+      if (
+        sections?.general?.websiteLogo &&
+        typeof sections?.general?.websiteLogo === "object"
+      ) {
+        let logoValue = configrationState?.defaultData?.logo;
+        logoValue = logoValue !== "empty value" ? logoValue : "";
+        let responseLogo = sections?.general?.websiteLogo;
+
+        let LogoObj = {
+          status: responseLogo?.status?.toString() || "false",
+          position: responseLogo?.position || "left",
+          text: {
+            ...appBarLogo,
+            value: responseLogo?.logoObj?.text,
+            ...responseLogo?.text,
+          },
+          logo: {
+            ...appBarLogo.logo,
+            ...responseLogo?.logoObj,
+            width: `${responseLogo?.logoObj?.width}px`,
+            height: `${responseLogo?.logoObj?.height}px`,
+            url: logoValue || "",
+          },
+        };
+
+        setAppBarLogo(LogoObj);
+      }
+
+      // Menu
+      if (
+        sections?.appBar?.menu &&
+        typeof sections?.appBar?.menu === "object"
+      ) {
+        setCenterMenu({ ...centerMenu, ...sections?.appBar?.menu });
+      }
     }
   }, [configrationState?.defaultData]);
 

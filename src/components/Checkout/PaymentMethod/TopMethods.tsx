@@ -21,14 +21,14 @@ const TopMethods = () => {
         stripeKey={
           "pk_test_51OiJqOSBRf3R5sNkOpBgUnMBF3v7BAwjonVvuqqQhCkt8vHD3ULWmF56Shtl7hE7wLFHVetlhRGGVxBVrG8CQHz800bZ7mq20P"
         }
-      >
-        <div className="w-full hover:shadow-lg duration-300 p-5 border-y border-gray-200 flex items-center justify-between ">
-          <div className="flex font-extralight gap-2 items-center">
-            <Image alt="" width={40} height={40} src="/visa.png" />
-            <h3 className="text-sm">Enter card details</h3>
-          </div>
+      > */}
+      <div className="w-full hover:shadow-lg duration-300 p-5 border-y border-gray-200 flex items-center justify-between ">
+        <div className="flex font-extralight gap-2 items-center">
+          <Image alt="" width={40} height={40} src="/visa.png" />
+          <h3 className="text-sm">Enter card details</h3>
         </div>
-      </StripeCheckout> */}
+      </div>
+      {/* </StripeCheckout> */}
       <div className="w-full text-sm font-extralight  p-5 flex items-center justify-between ">
         <h3>For faster and more secure checkout. Save your card details.</h3>
         <h1 className="font-semibold">
