@@ -133,6 +133,7 @@ const ProductCard = ({
             className={`absolute top-0 w-full h-full inset-0 bg-white/70 `}
           />
         )}
+
         {titleStyle !== 1 && (
           <p
             className={`font-semibold absolute inset-0 flex items-center justify-center text-center ${
@@ -148,13 +149,10 @@ const ProductCard = ({
         )}
       </Grid>
 
-      {titleStyle === 1 && (
-        <p className="font-semibold absolute inset-0 flex items-center justify-center text-center text-white">
-          {name}
-        </p>
-      )}
-
       <div className="w-full">
+        {titleStyle === 1 && (
+          <p className="font-semibold   text-black">{name}</p>
+        )}
         {productStylingDetails?.showDescription && (
           <p className="w-full line-clamp-2 font-extralight break-all h-[50px] ">
             {desc}

@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductCard4 = () => {
   return (
-    <div className="relative bg-white pt-32 py-6 px-6 shadow-xl">
+    <div className="relative bg-white py-6 px-6 shadow-xl">
       <div className=" text-white flex items-center absolute rounded-full py-4 px-4 translate-x-[20%] -top-[40%]">
         <img
           className="w-48 hover:scale-110 transition-all duration-[350ms]"

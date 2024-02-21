@@ -30,8 +30,8 @@ const ProductsCarousel = () => {
       className="mt-32 min-h-full"
     >
       {carouselData.map((item, i) => (
-        <SwiperSlide className="min-h-full" key={i}>
-          <ProductCard3 />
+        <SwiperSlide className="min-h-full pt-32" key={i}>
+          <ProductCard4 />
         </SwiperSlide>
       ))}
     </Swiper>
