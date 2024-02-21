@@ -139,6 +139,8 @@ export const sections = [
           radius: "25px",
         },
       },
+
+      //New Hassaan
       bannerBackground: {
         status: true,
         backgroundType: "slider",
