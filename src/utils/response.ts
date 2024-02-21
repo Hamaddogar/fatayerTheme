@@ -99,13 +99,13 @@ export const sections = [
         textPosition: "center",
         Slider: [
           {
-            text: "Hamad",
+            text: "Hassaan123",
             imageURL:
               "https://1000logos.net/wp-content/uploads/2020/09/James-Bond-Logo-2012.png",
             href: "/search",
           },
           {
-            text: "Hamad",
+            text: "Hassaan007",
             imageURL:
               "https://1000logos.net/wp-content/uploads/2020/09/James-Bond-Logo-2012.png",
             href: "/checkout",
