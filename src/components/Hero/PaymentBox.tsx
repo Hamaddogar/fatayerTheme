@@ -23,11 +23,23 @@ const PaymentBox = () => {
   const [paymentBoxDet, setPaymentBoxDet] = useState(
     sections[0]?.banner?.paymentBox
   );
+
+  const [paymentBoxCont, setPaymentBoxCont] = useState(
+    paymentBoxDet?.container
+  );
+  console.log(paymentBoxCont);
+
   return (
     paymentBoxDet.status && (
       <>
         <div className="w-full flex items-center justify-center">
-          <div className="absolute z-10 w-full lg:w-[50vw] bottom-10 rounded-lg bg-white">
+          <div
+            style={{
+              ...paymentBoxCont,
+              border: `${paymentBoxCont?.borderWidth}px solid ${paymentBoxCont?.borderColor}`,
+            }}
+            className="absolute z-10 w-full lg:w-[50vw] bottom-10 rounded-lg bg-white"
+          >
             <div
               className="flex border-b border-gray-300 gap-4  p-5 w-full items-center"
               onClick={() => setOpen(true)}

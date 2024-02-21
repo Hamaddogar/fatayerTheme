@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -9,6 +9,7 @@ import { sections } from "@/utils/response";
 import { Navigation } from "swiper/modules";
 import "swiper/css/effect-fade";
 import { EffectFade } from "swiper/modules";
+import { useSelector } from "react-redux";
 const BannerSlider = ({ data }: any) => {
   const bannerType = sections[0]?.banner?.bannerBackground?.sliderType;
   console.log(bannerType);
@@ -24,7 +25,7 @@ const BannerSlider = ({ data }: any) => {
       className="relative"
       effect={(bannerType === "Fade" && "fade") || ""}
       navigation={bannerType === "Manual"}
-      autoplay={{ delay: 1700 }}
+      autoplay={{ delay: 1200 }}
       loop
     >
       {data?.map((item: any, i: any) => (

@@ -9,7 +9,7 @@ const useStyleConfig = () => {
   const [styles, setStyles] = useState<any>({});
 
   useEffect(() => {
-    console.log("styles", styles);
+    // console.log("styles", styles);
 
     const cssValues = styles?.css;
     if (cssValues && Object.entries(cssValues).length > 0) {

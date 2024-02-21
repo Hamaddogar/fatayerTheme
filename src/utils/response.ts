@@ -10,28 +10,25 @@ export const sections = [
     websiteLogo: {
       status: true,
       position: "left",
-      text: {
-        value: "Hassaan",
-        color: "black",
-        backgroundColor: "",
-      },
-      logo: {
-        url: "https://overzaki.fra1.cdn.digitaloceanspaces.com/robustidiot5576.overzaki.info/image/design/1707763191248-desktop-wallpaper-cobra-logo-computer-cobra-commander-computer.jpg",
-        borderColor: "",
-        borderWidth: "",
-        width: "40px",
-        height: "40px",
-        borderRadius: "10%",
-      },
+      text: "Hassaan",
+      textColor: "black",
+      textBg: "",
+      logo: "https://overzaki.fra1.cdn.digitaloceanspaces.com/robustidiot5576.overzaki.info/image/design/1707763191248-desktop-wallpaper-cobra-logo-computer-cobra-commander-computer.jpg",
+      borderColor: "",
+      borderWidth: "",
+      width: "40px",
+      height: "40px",
+      borderRadius: "10%",
     },
     generalIcons: {
       color: "",
-      border: "1px solid", //updated
-      borderRadius: "50%",
-      backgroundColor: "red",
+      border: "1px solid",
+      padding: "6px", //updated
+      borderRadius: "8px",
+      backgroundColor: "white",
       backgroundColorDark: "#000000",
-      width: 35,
-      height: 35,
+      width: "40px",
+      height: "40px",
       isShadow: true,
       borderColor: "black",
       borderColorDark: "#000000",
@@ -42,12 +39,12 @@ export const sections = [
       app_bar: [],
       container: {
         show: true,
-        boxShadow: "2",
-        backgroundColor: "white",
+
+        backgroundColor: "transparent",
         width: "100%",
-        height: 80,
+        height: "80px",
         isShadow: true,
-        borderBottomWidth: 1,
+        borderBottomWidth: 0,
         borderBottomColor: "#F5F5F8",
         borderBottomColorDark: "#F5F5F8",
         isCenterTitle: false,
@@ -56,7 +53,7 @@ export const sections = [
         },
       },
       menu: {
-        status: true,
+        status: false,
         menuItems: [
           {
             name: "Hassaan",
@@ -78,7 +75,7 @@ export const sections = [
       search: {
         status: true,
         icon: "image",
-        position: "right",
+        position: "left",
         input: false,
         textBg: "",
         textColor: "",
@@ -92,10 +89,10 @@ export const sections = [
         },
       },
       adAppBar: {
+        status: false,
         width: "100%",
         height: "50px",
         backgroundColor: "red",
-
         textPosition: "center",
         Slider: [
           {
@@ -123,9 +120,9 @@ export const sections = [
     banner: {
       paymentBox: {
         // updated
-        status: false,
+        status: true,
         logo: "websiteLogo", // use website logo here
-        heading: "Hassaan",
+        heading: "Fatayer Ala Al Tayer",
         paymentMethod: [
           "/knet.png",
           "/visa.png",
@@ -135,8 +132,23 @@ export const sections = [
           "/cash-on-delivery.png",
         ],
         button: {
-          text: "Hamad",
-          radius: "25px",
+          text: "Pickup",
+          radius: "0px",
+        },
+        container: {
+          borderRadius: "",
+          borderColor: "#DBDBDB",
+          borderWidth: 0,
+          backgroundColor: "#FFFFFF",
+          backgroundColorDark: "#000000",
+          isShadow: true,
+          startColor: "#00000020",
+          finalColor: "#00000000",
+          colorShadow: "#000000",
+          paddingY: "10px",
+          paddingX: "70px",
+          marginTop: "80px",
+          marginBottom: "90px",
         },
       },
 
@@ -148,13 +160,13 @@ export const sections = [
           src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
           text: "",
           textStatus: true,
-
-          width: 200,
+          zIndex: 2,
+          width: "200",
           height: 100,
           style: {
             top: "10px",
             left: "10px",
-            fontWeight: 900,
+            fontWeight: "900",
             color: "red",
           },
           adjustPicturePosition: "10%",
@@ -168,30 +180,30 @@ export const sections = [
             style: {
               top: "90px",
               left: "90px",
-              fontWeight: 900,
+              fontWeight: "900",
               color: "blue",
             },
           },
           {
             src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
-            text: "007",
+            text: "HassaanA",
             textStatus: true,
             style: {
-              top: "10px",
-              left: "10px",
-              fontWeight: 900,
-              color: "red",
+              top: "90px",
+              left: "90px",
+              fontWeight: "900",
+              color: "blue",
             },
           },
           {
             src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
-            text: "Hassaan 82 007",
+            text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,",
             textStatus: true,
             style: {
-              top: "10px",
-              left: "10px",
-              fontWeight: 900,
-              color: "red",
+              top: "90px",
+              left: "90px",
+              fontWeight: "900",
+              color: "blue",
             },
           },
         ],

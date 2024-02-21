@@ -39,7 +39,11 @@ const Home = () => {
   }, []);
 
   const [bannerDetails, setBannerDetails] = useState(respData[0]?.banner);
-
+  const configrationState = useSelector((state) => state?.configration);
+  // useEffect(() => {
+  //   // console.log(configrationState?.defaultData?.home?.sections?.banner);
+  // }, [configrationState?.defaultData]);
+  console.log(bannerDetails.bannerBackground.slider);
   return (
     <div className="">
       {/* <Navbar2 /> */}

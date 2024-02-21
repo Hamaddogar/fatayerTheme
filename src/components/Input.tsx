@@ -24,7 +24,7 @@ const Input = ({
             backgroundColor: style.backgroundColor,
           }}
           placeholder={placeholder}
-          className={`outline-none placeholder:text-[${style?.textColor}] p-2 w-full rounded-full`}
+          className={`outline-none placeholder:text-[${style?.textColor}] bg-transparent p-2 w-full rounded-full`}
         />
       )}
     </div>

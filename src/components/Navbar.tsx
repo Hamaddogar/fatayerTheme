@@ -91,103 +91,118 @@ const Navbar = () => {
   }, []);
   const [showSearchBar, setShowSearchBar] = useState(true);
   useEffect(() => {
+    // console.log(configrationState?.defaultData);
     if (configrationState?.defaultData) {
-      const searchbarValue =
-        configrationState?.defaultData?.layout?.productDetailsPage
-          ?.showSearchBarSection;
-      setShowSearchBar(searchbarValue);
-      let logoValue = configrationState?.defaultData?.logo;
-      logoValue = logoValue !== "empty value" ? logoValue : "";
-      // setThemeLogo(logoValue || "");
-      setAppBarLogo(configrationState?.defaultData?.appBar?.logoObj);
-
-      // ----------- New AppBar Response Values -----------------
-      const sections = configrationState?.defaultData?.home?.sections;
-      // console.log(sections?.appBar);
-
-      // container
-      if (
-        sections?.appBar?.container &&
-        typeof sections?.appBar?.container === "object"
-      ) {
-        setAppBarContainer({
-          ...appBarContainer,
-          ...sections?.appBar?.container,
-        });
-      }
-
-      // search
-      if (
-        sections?.appBar?.search &&
-        typeof sections?.appBar?.search === "object"
-      ) {
-        setAppBarSearch({ ...appBarSearch, ...sections?.appBar?.search });
-      }
-
-      // setGeneralIcons
-      if (
-        sections?.general?.generalIcons &&
-        typeof sections?.general?.generalIcons === "object"
-      ) {
-        setGeneralIcons({
-          ...generalIcons,
-          ...sections?.general?.generalIcons,
-        });
-      }
-
-      // Logo
-      if (
-        sections?.general?.websiteLogo &&
-        typeof sections?.general?.websiteLogo === "object"
-      ) {
-        let logoValue = configrationState?.defaultData?.logo;
-        logoValue = logoValue !== "empty value" ? logoValue : "";
-        let responseLogo = sections?.general?.websiteLogo;
-
-        let LogoObj = {
-          status: responseLogo?.status?.toString() || "false",
-          position: responseLogo?.position || "left",
-          text: {
-            ...appBarLogo,
-            value: responseLogo?.logoObj?.text,
-            ...responseLogo?.text,
-          },
-          logo: {
-            ...appBarLogo.logo,
-            ...responseLogo?.logoObj,
-            width: `${responseLogo?.logoObj?.width}px`,
-            height: `${responseLogo?.logoObj?.height}px`,
-            url: logoValue || "",
-          },
-        };
-
-        setAppBarLogo(LogoObj);
-      }
-
-      // Menu
-      if (
-        sections?.appBar?.menu &&
-        typeof sections?.appBar?.menu === "object"
-      ) {
-        setCenterMenu({ ...centerMenu, ...sections?.appBar?.menu });
-      }
+      const search =
+        configrationState?.defaultData?.home?.sections?.appBar?.search;
+      setAppBarSearch(search);
+      setAppBarLogo(
+        configrationState?.defaultData?.home?.sections?.general?.websiteLogo
+          ?.logoObj
+      );
+      setAppBarContainer(
+        configrationState?.defaultData?.home?.sections?.appBar?.container
+      );
     }
   }, [configrationState?.defaultData]);
+  // console.log(appBarLogo);
+  // useEffect(() => {
+  //   if (configrationState?.defaultData) {
+  //     const searchbarValue =
+  //       configrationState?.defaultData?.layout?.productDetailsPage
+  //         ?.showSearchBarSection;
+  //     setShowSearchBar(searchbarValue);
+  //     let logoValue = configrationState?.defaultData?.logo;
+  //     logoValue = logoValue !== "empty value" ? logoValue : "";
+  //     // setThemeLogo(logoValue || "");
+  //     setAppBarLogo(configrationState?.defaultData?.appBar?.logoObj);
+
+  //     // ----------- New AppBar Response Values -----------------
+  //     const sections = configrationState?.defaultData?.home?.sections;
+  //     // console.log(sections?.appBar);
+
+  //     // container
+  //     if (
+  //       sections?.appBar?.container &&
+  //       typeof sections?.appBar?.container === "object"
+  //     ) {
+  //       setAppBarContainer({
+  //         ...appBarContainer,
+  //         ...sections?.appBar?.container,
+  //       });
+  //     }
+
+  //     // search
+  //     if (
+  //       sections?.appBar?.search &&
+  //       typeof sections?.appBar?.search === "object"
+  //     ) {
+  //       setAppBarSearch({ ...appBarSearch, ...sections?.appBar?.search });
+  //     }
+
+  //     // setGeneralIcons
+  //     if (
+  //       sections?.general?.generalIcons &&
+  //       typeof sections?.general?.generalIcons === "object"
+  //     ) {
+  //       setGeneralIcons({
+  //         ...generalIcons,
+  //         ...sections?.general?.generalIcons,
+  //       });
+  //     }
+
+  //     // Logo
+  //     if (
+  //       sections?.general?.websiteLogo &&
+  //       typeof sections?.general?.websiteLogo === "object"
+  //     ) {
+  //       let logoValue = configrationState?.defaultData?.logo;
+  //       logoValue = logoValue !== "empty value" ? logoValue : "";
+  //       let responseLogo = sections?.general?.websiteLogo;
+
+  //       let LogoObj = {
+  //         status: responseLogo?.status?.toString() || "false",
+  //         position: responseLogo?.position || "left",
+  //         text: {
+  //           ...appBarLogo,
+  //           value: responseLogo?.logoObj?.text,
+  //           ...responseLogo?.text,
+  //         },
+  //         logo: {
+  //           ...appBarLogo.logo,
+  //           ...responseLogo?.logoObj,
+  //           width: `${responseLogo?.logoObj?.width}px`,
+  //           height: `${responseLogo?.logoObj?.height}px`,
+  //           url: logoValue || "",
+  //         },
+  //       };
+  //       setAppBarLogo(LogoObj);
+  //     }
+
+  //     // Menu
+  //     if (
+  //       sections?.appBar?.menu &&
+  //       typeof sections?.appBar?.menu === "object"
+  //     ) {
+  //       setCenterMenu({ ...centerMenu, ...sections?.appBar?.menu });
+  //     }
+  //   }
+  // }, [configrationState?.defaultData]);
 
   // Banner
 
   const [centerMenu, setCenterMenu] = useState(sections[0]?.appBar?.menu);
-
+  // console.log(appBarLogo);
   return (
     <>
       <div
         style={{
           ...appBarContainer,
+          height: appBarContainer?.height,
           display: appBarContainer?.show ? "flex" : "none",
-          boxShadow:
-            appBarContainer?.boxShadow !== "none"
-              ? "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-              : "",
+          boxShadow: appBarContainer?.isShadow
+            ? "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+            : "",
         }}
         // borderTop:
         //   appBarContainer.borderPosition === "top"
@@ -202,7 +217,7 @@ const Navbar = () => {
         //     ? `1px solid ${appBarContainer.borderColor}`
         //     : "none",
 
-        className=" bg-transparent z-60 px-6 py-4 sticky w-full top-0 flex items-center justify-between"
+        className="fixed navbar z-60 px-6 py-4 w-full top-0 flex items-center justify-between"
       >
         <div className="flex items-center gap-2">
           {appBarLeftDetails?.find(
@@ -212,8 +227,6 @@ const Navbar = () => {
               <Image
                 style={{
                   ...generalIcons,
-                  width: "34px",
-                  height: "34px",
                 }}
                 src={
                   appBarLeftDetails?.find(
@@ -235,7 +248,8 @@ const Navbar = () => {
                       border: `${appBarSearch?.borderWidth?.toString()}px solid ${
                         appBarSearch?.borderColor
                       }`,
-                      // background: "transparent",
+
+                      background: "white",
                       display: appBarSearch?.status ? "flex" : "none",
                     }
                   : {
@@ -249,6 +263,9 @@ const Navbar = () => {
                       boxShadow: generalIcons?.isShadow
                         ? "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
                         : "none",
+                      display: "flex",
+                      alignItems: "center",
+                      justfiyContent: "center",
                     }
               }
               className={`${
@@ -258,71 +275,72 @@ const Navbar = () => {
             />
           )}
           <div className="flex items-center">
-            {appBarLogo?.position === "left" && (
+            {appBarLogo?.status && appBarLogo?.position === "left" && (
               <div className="flex items-center">
                 <Image
-                  // Style of centered Section
-                  style={{ ...appBarLogo?.logo }}
+                  // Style of left Section
+                  style={appBarLogo}
                   // Image link
-                  src={appBarLogo?.logo?.url}
+                  src={configrationState?.defaultData?.logo}
                 />
 
-                {appBarLogo?.text?.value !== "empty value" && (
-                  <Span
-                    style={appBarLogo?.text}
-                    text={appBarLogo?.text?.value}
-                  />
-                )}
+                <Span text={appBarLogo?.text} />
               </div>
             )}
           </div>
         </div>
         {/* Center */}
         <div className="flex items-center">
-          <div className="flex items-center gap-3">
-            {centerMenu?.menuItems?.map((item: any, i) => (
-              <span
-                key={i}
-                onMouseEnter={() => setIsHovered(item?.name)}
-                onMouseLeave={() => setIsHovered(false)}
-                style={{
-                  ...centerMenu?.style,
-                  fontSize: centerMenu?.style?.size,
-                  color:
-                    isHovered === item?.name && centerMenu?.style?.hoverColor
-                      ? centerMenu?.style?.hoverColor
-                      : centerMenu?.style?.color,
-                }}
-              >
-                {item?.name}
-              </span>
-            ))}
-          </div>
-          {appBarLogo?.position === "center" && (
+          {centerMenu?.status && (
+            <div className="flex items-center gap-3">
+              {centerMenu?.menuItems?.map((item: any, i) => (
+                <span
+                  key={i}
+                  onMouseEnter={() => setIsHovered(item?.name)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  style={{
+                    ...centerMenu?.style,
+                    fontSize: centerMenu?.style?.size,
+                    color:
+                      isHovered === item?.name && centerMenu?.style?.hoverColor
+                        ? centerMenu?.style?.hoverColor
+                        : centerMenu?.style?.color,
+                  }}
+                >
+                  {item?.name}
+                </span>
+              ))}
+            </div>
+          )}
+          {appBarLogo?.status && appBarLogo?.position === "center" && (
             <div className="flex items-center">
               <Image
                 // Style of centered Section
-                style={appBarLogo?.logo}
+                style={appBarLogo}
                 // Image link
-                src={appBarLogo?.logo?.url}
+                src={configrationState?.defaultData?.logo}
               />
 
-              {appBarLogo?.text && (
-                <Span style={appBarLogo?.text} text={appBarLogo?.text?.value} />
-              )}
+              {appBarLogo?.text && <Span text={appBarLogo?.text} />}
             </div>
           )}
-          {appBarSearch?.position === "center" && (
+          {appBarSearch?.position === "center" && appBarSearch?.status && (
             <Input
               input={!matches && appBarSearch?.input}
               style={
                 appBarSearch?.input
                   ? {
-                      color: appBarSearch?.textColor,
+                      color:
+                        appBarSearch?.textColor === "empty value"
+                          ? "black"
+                          : appBarSearch?.textColor,
                       display: appBarSearch?.status ? "flex" : "none",
-                      border: `${appBarSearch?.borderWidth?.toString()}px solid ${
-                        appBarSearch?.borderColor
-                      }`,
+                      border:
+                        appBarSearch?.borderColor !== "empty value"
+                          ? `${appBarSearch?.borderWidth?.toString()}px solid ${
+                              appBarSearch?.borderColor
+                            }`
+                          : "none",
                     }
                   : generalIcons
               }
@@ -336,21 +354,19 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3 text-white">
-          {appBarLogo?.position === "right" && (
+          {appBarLogo?.status && appBarLogo?.position === "right" && (
             <div className="flex items-center">
               <Image
                 // Style of centered Section
-                style={appBarLogo?.logo}
+                style={appBarLogo}
                 // Image link
-                src={appBarLogo?.logo?.url}
+                src={configrationState?.defaultData?.logo}
               />
 
-              {appBarLogo?.text && (
-                <Span style={appBarLogo?.text} text={appBarLogo?.text?.value} />
-              )}
+              {appBarLogo?.text && <Span text={appBarLogo?.text} />}
             </div>
           )}
-          {appBarSearch?.position === "right" && (
+          {appBarSearch?.position === "right" && appBarSearch?.status && (
             <Input
               className={`${
                 appBarSearch?.mobileView?.status ? "max-sm:flex" : "hidden"
@@ -364,7 +380,7 @@ const Navbar = () => {
                       border: `${appBarSearch?.borderWidth?.toString()}px solid ${
                         appBarSearch?.borderColor
                       }`,
-                      // background: "transparent",
+                      background: "white",
                       display: appBarSearch?.status ? "flex" : "none",
                     }
                   : generalIcons
