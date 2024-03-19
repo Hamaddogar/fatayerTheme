@@ -43,7 +43,7 @@ const Home = () => {
   // useEffect(() => {
   //   // console.log(configrationState?.defaultData?.home?.sections?.banner);
   // }, [configrationState?.defaultData]);
-  console.log(bannerDetails.bannerBackground.slider);
+
   return (
     <div className="">
       {/* <Navbar2 /> */}

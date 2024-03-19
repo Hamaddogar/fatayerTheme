@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PaymentBox from "./Hero/PaymentBox";
+import SearchHero from "./SearchHero";
 
 const VideoBanner = () => {
   const [video, setVideo] = useState({
@@ -18,7 +19,8 @@ const VideoBanner = () => {
         <source src={video?.src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <PaymentBox />
+      {/* <PaymentBox /> */}
+      <SearchHero />
     </div>
   );
 };

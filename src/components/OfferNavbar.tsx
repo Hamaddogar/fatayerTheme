@@ -42,7 +42,7 @@ const OfferNavbar = () => {
               className="flex cursor-pointer items-center w-full justify-center"
             >
               <img className="w-8 h-8" src={item?.imageURL} />
-              <span>{item?.text}</span>
+              <span style={{ color: "black" }}>{item?.text}</span>
             </div>
           </SwiperSlide>
         ))}

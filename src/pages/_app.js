@@ -5,8 +5,54 @@ import "../app/globals.css";
 // ... other necessary CSS imports
 import Head from "next/head";
 import Footer from "../components/Footer";
+import { useState } from "react";
 
 function MyApp({ Component, pageProps }) {
+  const [menuItems, setMenuItems] = useState(["Home"]);
+  const customPresets = [
+    "#FF5733", // Reddish Orange
+    "#33FF57", // Greenish Yellow
+    "#3366FF", // Vivid Blue
+    "#FF33FF", // Electric Purple
+    "#33FFFF", // Cyan
+    "#FF3366", // Pink
+    "#6633FF", // Blue Purple
+    "#FF9900", // Orange
+    "#00FF99", // Spring Green
+    "#9966FF", // Royal Purple
+    "#99FF33", // Lime Green
+    "#FF66CC", // Pastel Pink
+    "#66FF33", // Bright Lime
+    "#FF6600", // Bright Orange
+    "#FF99CC", // Light Pink
+    "#3399FF", // Sky Blue
+    "#FFCC00", // Gold
+    "#33CC66", // Jade
+    "#33FF57", // Greenish Yellow
+    "#3366FF", // Vivid Blue
+  ];
+  const [footerStyling, setFooterStyling] = useState({
+    container: {
+      backgroundColor: "black",
+    },
+    menuItems: {
+      color: "white",
+    },
+    socialIcons: {
+      color: "black",
+      backgroundColor: "white",
+    },
+    socials: {
+      facebook: true,
+      instagram: true,
+      twitter: true,
+      google: true,
+    },
+  });
+
+  const [menuItemColor, setMenuItemColor] = useState("white");
+  const [containerBackgroundColor, setContainerBackgroundColor] =
+    useState("black");
   return (
     <>
       <Head>
@@ -15,7 +61,12 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Provider store={store}>
         <Component {...pageProps} />
-        <Footer />
+        <Footer
+          containerBackgroundColor={containerBackgroundColor}
+          menuItemColor={menuItemColor}
+          menuItems={menuItems}
+          footerStyling={footerStyling}
+        />
       </Provider>
     </>
   );

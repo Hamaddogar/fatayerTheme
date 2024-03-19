@@ -43,7 +43,7 @@ export const sections = [
         backgroundColor: "transparent",
         width: "100%",
         height: "80px",
-        isShadow: true,
+        isShadow: false,
         borderBottomWidth: 0,
         borderBottomColor: "#F5F5F8",
         borderBottomColorDark: "#F5F5F8",
@@ -155,14 +155,13 @@ export const sections = [
       //New Hassaan
       bannerBackground: {
         status: true,
-        backgroundType: "slider",
+        backgroundType: "image",
         image: {
-          src: "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",
+          src: "/logo.jpg",
           text: "",
           textStatus: true,
-          zIndex: 2,
-          width: "200",
-          height: 100,
+
+          height: "500px",
           style: {
             top: "10px",
             left: "10px",

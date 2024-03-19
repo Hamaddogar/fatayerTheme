@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PaymentBox from "./PaymentBox";
 import { useSelector } from "react-redux";
+import { sections } from "@/utils/response";
 
 const Hero = () => {
   const [themeHeaderImage, setThemeHeaderImage] = useState<any>(null);
@@ -25,14 +26,17 @@ const Hero = () => {
       setBackgroundPositionY(`${percentage}%`);
     }
   };
-
-  useEffect(() => {
-    if (configrationState?.defaultData) {
-      const imageValue =
-        configrationState?.defaultData?.layout?.homePage?.header?.image;
-      setThemeHeaderImage(imageValue || "");
-    }
-  }, [configrationState?.defaultData]);
+  const [imageHeight, setImageHeight] = useState(
+    sections[0].banner.bannerBackground.image
+  );
+  console.log(imageHeight);
+  // useEffect(() => {
+  //   if (configrationState?.defaultData) {
+  //     const imageValue =
+  //       configrationState?.defaultData?.layout?.homePage?.header?.image;
+  //     setThemeHeaderImage(imageValue || "");
+  //   }
+  // }, [configrationState?.defaultData]);
   useEffect(() => {
     const handleMouseUpOutside = () => {
       setIsMouseDown(false);
@@ -50,10 +54,11 @@ const Hero = () => {
     <div
       className={`bg-[url(${
         themeHeaderImage || "/heroImage.jpg"
-      })] rounded-lg z-10 relative overflow-hidden h-[455px] bg-no-repeat bg-center bg-cover `}
+      })] rounded-lg z-10 relative h-[500px] overflow-hidden bg-no-repeat bg-center bg-cover `}
       style={{
         backgroundImage: `url('${themeHeaderImage || "/heroImage.jpg"}')`,
         backgroundPositionY,
+        // height: imageHeight,
       }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}

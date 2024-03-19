@@ -10,6 +10,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css/effect-fade";
 import { EffectFade } from "swiper/modules";
 import { useSelector } from "react-redux";
+import SearchHero from "./SearchHero";
 const BannerSlider = ({ data }: any) => {
   const bannerType = sections[0]?.banner?.bannerBackground?.sliderType;
   console.log(bannerType);
@@ -41,7 +42,9 @@ const BannerSlider = ({ data }: any) => {
           )}
         </SwiperSlide>
       ))}
-      <PaymentBox />
+      {/* <PaymentBox />
+       */}
+      <SearchHero />
     </Swiper>
   );
 };

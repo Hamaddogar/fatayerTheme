@@ -26,8 +26,8 @@ const SectionNavigator = () => {
     categoriesBar: {
       status: true,
       backgroundColor: "white",
-      borderRadius: "60px",
-      shadow: "2",
+      borderRadius: "10px",
+      shadow: "1",
     },
     categoriesList: {
       color: "blue",

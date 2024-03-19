@@ -136,23 +136,24 @@
           "button": {
             "text": "",
             "raduis": ""
+          },
+          "container": {
+            "borderRadius": 0,
+            "borderColor": "#DBDBDB",
+            "borderWidth": 0,
+            "backgroundColor": "#FFFFFF",
+            "backgroundColorDark": "#000000",
+            "isShadow": false,
+            "startColor": "#00000020",
+            "finalColor": "#00000000",
+            "colorShadow": "#000000",
+            "paddingY": 20,
+            "paddingX": 0,
+            "marginTop": 20,
+            "marginBottom": 0
           }
         },
-        "container": {
-          "borderRadius": 0,
-          "borderColor": "#DBDBDB",
-          "borderWidth": 0,
-          "backgroundColor": "#FFFFFF",
-          "backgroundColorDark": "#000000",
-          "isShadow": false,
-          "startColor": "#00000020",
-          "finalColor": "#00000000",
-          "colorShadow": "#000000",
-          "paddingY": 20,
-          "paddingX": 0,
-          "marginTop": 20,
-          "marginBottom": 0
-        },
+
         "bannerTitle": {
           "show": true,
           "text": "bannertitle",
@@ -179,7 +180,7 @@
             },
             "adjustPicturePosition": "10%"
           },
-          "sliderType": "Manual",
+          "sliderType": "Manual, Auto, Fade",
           "slider": [
             {
               "src": "https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg",

@@ -6,6 +6,7 @@ const BrandAds = () => {
   const router = useRouter();
   const [adDetails, setAdDetails] = useState([
     {
+      show: false,
       textDetails: {
         heading: {
           value: "Heading 1",
@@ -45,6 +46,7 @@ const BrandAds = () => {
       },
     },
     {
+      show: false,
       textDetails: {
         heading: {
           value: "Heading 3",
@@ -86,32 +88,35 @@ const BrandAds = () => {
   ]);
   return (
     <div className="flex max-md:flex-col gap-4">
-      {adDetails?.map((item: any, ind: any) => (
-        <div className="relative" key={"card_" + ind}>
-          <img style={item?.image?.imageStyles} src={item?.image?.url} />
-          <div className="absolute bottom-6 left-6">
-            <h1
-              style={item?.textDetails?.heading?.headingStyles}
-              className="font-bold text-white"
-            >
-              {item?.textDetails?.heading?.value}
-            </h1>
-            <p style={item?.textDetails?.desc?.descStyles}>
-              {item?.textDetails?.desc?.value}
-            </p>
-            <button
-              onClick={
-                item?.button?.href
-                  ? () => router.push(item?.button?.href)
-                  : () => {}
-              }
-              style={item?.button?.buttonStyles}
-            >
-              {item?.button?.value}
-            </button>
-          </div>
-        </div>
-      ))}
+      {adDetails?.map(
+        (item: any, ind: any) =>
+          item.show && (
+            <div className="relative" key={"card_" + ind}>
+              <img style={item?.image?.imageStyles} src={item?.image?.url} />
+              <div className="absolute bottom-6 left-6">
+                <h1
+                  style={item?.textDetails?.heading?.headingStyles}
+                  className="font-bold text-white"
+                >
+                  {item?.textDetails?.heading?.value}
+                </h1>
+                <p style={item?.textDetails?.desc?.descStyles}>
+                  {item?.textDetails?.desc?.value}
+                </p>
+                <button
+                  onClick={
+                    item?.button?.href
+                      ? () => router.push(item?.button?.href)
+                      : () => {}
+                  }
+                  style={item?.button?.buttonStyles}
+                >
+                  {item?.button?.value}
+                </button>
+              </div>
+            </div>
+          )
+      )}
     </div>
   );
 };
