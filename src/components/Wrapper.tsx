@@ -27,6 +27,11 @@ const Wrapper = ({ children }: { children: React.ReactElement }) => {
     if (!defaultDataState?.defaultData) {
       getStyleConfig();
     }
+    return () => {
+      if (socket) {
+        socket.disconnect();
+      }
+    };
   }, [builderId]);
 
   const getStyleConfig = () => {
