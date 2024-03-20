@@ -10,6 +10,11 @@ const VideoBanner = () => {
     description: "", //Explain description
     layout: "1,2", //What Layout
   });
+  const [searchHero, setSearchHero] = useState({
+    topText: "WE ARE HERE TO MAKE",
+    bottomText: "COOKING FUN AGAIN",
+    placeholder: "What to cook today?",
+  });
   return (
     <div
       style={{ borderRadius: video?.borderRadius }}
@@ -20,7 +25,7 @@ const VideoBanner = () => {
         Your browser does not support the video tag.
       </video>
       {/* <PaymentBox /> */}
-      <SearchHero />
+      <SearchHero searchHero={searchHero} />
     </div>
   );
 };

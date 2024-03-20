@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PaymentBox from "./Hero/PaymentBox";
 import SearchHero from "./SearchHero";
 
 const ImageTextBanner = ({ data }: { data: any }) => {
+  const [searchHero, setSearchHero] = useState({
+    topText: "WE ARE HERE TO MAKE",
+    bottomText: "COOKING FUN AGAIN",
+    placeholder: "What to cook today?",
+  });
   return (
     <div className="w-full relative">
       <img
@@ -16,7 +21,7 @@ const ImageTextBanner = ({ data }: { data: any }) => {
         </h1>
       )}
       {/* <PaymentBox /> */}
-      <SearchHero />
+      <SearchHero searchHero={searchHero} />
     </div>
   );
 };

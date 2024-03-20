@@ -13,7 +13,11 @@ import { useSelector } from "react-redux";
 import SearchHero from "./SearchHero";
 const BannerSlider = ({ data }: any) => {
   const bannerType = sections[0]?.banner?.bannerBackground?.sliderType;
-  console.log(bannerType);
+  const [searchHero, setSearchHero] = useState({
+    topText: "WE ARE HERE TO MAKE",
+    bottomText: "COOKING FUN AGAIN",
+    placeholder: "What to cook today?",
+  });
   return (
     <Swiper
       modules={
@@ -44,7 +48,7 @@ const BannerSlider = ({ data }: any) => {
       ))}
       {/* <PaymentBox />
        */}
-      <SearchHero />
+      <SearchHero searchHero={searchHero} />
     </Swiper>
   );
 };
